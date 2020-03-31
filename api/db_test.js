@@ -4,8 +4,8 @@ var md5 = require('blueimp-md5');
 // 2.创建一个服务器
 var app = express();
 
-// 引入数据模型
-var user = require('../model/db.js')
+// 引入数据模型(引用外部js)
+var user = require('../db/model.js')
 
 app.get('./db_test', function (req, res) {
   // 1.获取数据

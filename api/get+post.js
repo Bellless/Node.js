@@ -2,10 +2,17 @@
 var express = require('express');
 // 2.创建一个服务器
 var app = express();
+const bodyParser=require('body-parser')
 // 公开某个指定目录能被公用访问
 // use第一个参数为请求地址中的 第二个为static中具体的文件
 // /static/xxxx
 app.use("/static/", express.static("./static/"));
+// 解析POST请求传递的表单数据格式 x-www-form-urlencode
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
+// 解析Post请求传递的json数据格式
+app.use(bodyParser.json())
 // 引用模板引擎
 app.engine('html', require('express-art-template'))
 //设置跨域访问
@@ -46,13 +53,15 @@ app.get('/user/login', function (req, res) {
     })
   }
 });
-app.post('/user/regist', function (req, res) {
+app.post('/user/regist',(req, res) =>{
   // post请求获取传递的参数 用req.body
-  // let {
-  //   us,
-  //   pwd,
-  // } = req.body;
-  // console.log(req.body);
+  // express不能直接解析请求体，需要三方插件body-parser
+  let {
+    username,
+    password,
+  } = req.body;
+  return res.send("aaaaa")
+  console.log(req.body);
 });
 // 接口 请求地址 http: //192.168.1.104:3000/produce
 app.get('/produce', function (req, res, next) {
