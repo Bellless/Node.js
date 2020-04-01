@@ -7,15 +7,15 @@ var app = express();
 // 引入数据模型(引用外部js)
 var user = require('../db/model.js')
 
-app.get('./db_test', function (req, res) {
-  // 1.获取数据
+app.get('/db_test', function (req, res) {
+  // 1.获取请求传递的数据
   // req.body
   // 2.操作数据库
   // 如果存在，不准许重复注册
   // 如果不存在，注册新建用户
   // 3.发送响应
   var body = req.body
-  body.findOne({
+  body.find({
     // 或语法判断
     $or: [{
         email: body.email
@@ -61,4 +61,7 @@ app.get('./db_test', function (req, res) {
       })
     })
   })
+})
+app.listen(3000, () => {
+  console.log('服务器启动 访问本机ip地址:3000访问');
 })
