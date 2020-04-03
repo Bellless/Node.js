@@ -1,4 +1,5 @@
 // model里面定义数据表
+// 用户注册字段表
 var mongoose = require('mongoose');
 // 定义数据表
 var Schema = mongoose.Schema;

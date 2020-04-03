@@ -1,7 +1,14 @@
 const express = require("express");
 // 引用数据库连接文件
 const db = require('./dbConnection.js');
+// 引用path目录访问静态资源
+const path=require('path')
 const app = express();
+
+// 访问静态资源
+// __dirname表示访问的是当前目录
+app.use("/public", express.static(path.join(__dirname,"./static")));
+
 
 //设置跨域访问
 app.all('*', function (req, res, next) {
@@ -13,8 +20,9 @@ app.all('*', function (req, res, next) {
   next();
 });
 
-// 引用express路由(相当于指定一个项目文件目录)
+// 引用接口api文件
 const userRouter = require("./model/router/userRouter.js")
+const foodRouter = require("./model/router/foodRouter.js")
 
 // 引用json解析包
 const bodyParser = require("body-parser")
@@ -25,7 +33,9 @@ app.use(bodyParser.urlencoded({
 // 解析Post请求传递的json数据格式
 app.use(bodyParser.json())
 
+// 使用express router(相当于定义了一个请求目录)
 app.use('/user', userRouter)
+app.use('/food', foodRouter)
 app.listen(3000, () => {
   console.log("服务器启动 访问本机ip地址:3000访问");
 })
