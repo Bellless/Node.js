@@ -1,6 +1,62 @@
 define({ "api": [
   {
     "type": "post",
+    "url": "/food/foodSearchType",
+    "title": "--指定条件查询",
+    "name": "SearchType",
+    "group": "Food",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "typeid",
+            "description": "<p>食品id</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "code",
+            "description": "<p>成功状态码</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "String",
+            "optional": false,
+            "field": "code",
+            "description": "<p>失败状态码</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "type": "String",
+            "optional": false,
+            "field": "err",
+            "description": "<p>请求错误状态码</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./foodRouter.js",
+    "groupTitle": "Food"
+  },
+  {
+    "type": "post",
     "url": "/food/addfood",
     "title": "--添加菜品",
     "name": "addfood",
@@ -92,9 +148,9 @@ define({ "api": [
   },
   {
     "type": "post",
-    "url": "/food/foodSearchType",
-    "title": "--分类查询",
-    "name": "foodSearchType",
+    "url": "/food/del",
+    "title": "--删除",
+    "name": "foodDelete",
     "group": "Food",
     "parameter": {
       "fields": {
@@ -103,8 +159,176 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "typeid",
-            "description": "<p>食品id</p>"
+            "field": "id",
+            "description": "<p>食品在数据库中生成的id</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "code",
+            "description": "<p>成功状态码</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "String",
+            "optional": false,
+            "field": "code",
+            "description": "<p>失败状态码</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "type": "String",
+            "optional": false,
+            "field": "err",
+            "description": "<p>请求错误状态码</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./foodRouter.js",
+    "groupTitle": "Food"
+  },
+  {
+    "type": "post",
+    "url": "/food/upData",
+    "title": "--修改",
+    "name": "foodUpdata",
+    "group": "Food",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>对应的食品id</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "code",
+            "description": "<p>成功状态码</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "String",
+            "optional": false,
+            "field": "code",
+            "description": "<p>失败状态码</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "type": "String",
+            "optional": false,
+            "field": "err",
+            "description": "<p>请求错误状态码</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./foodRouter.js",
+    "groupTitle": "Food"
+  },
+  {
+    "type": "post",
+    "url": "/food/foodKeySearch",
+    "title": "--关键字查询(模糊查询)",
+    "name": "searchKey",
+    "group": "Food",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "key",
+            "description": "<p>关键字</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "code",
+            "description": "<p>成功状态码</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "String",
+            "optional": false,
+            "field": "code",
+            "description": "<p>失败状态码</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "type": "String",
+            "optional": false,
+            "field": "err",
+            "description": "<p>请求错误状态码</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./foodRouter.js",
+    "groupTitle": "Food"
+  },
+  {
+    "type": "post",
+    "url": "/food/foodPageSearch",
+    "title": "--分页查询",
+    "name": "searchPage",
+    "group": "Food",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "pageSize",
+            "description": "<p>每页数据条数</p>"
           }
         ]
       }
@@ -271,5 +495,48 @@ define({ "api": [
     "version": "0.0.0",
     "filename": "./userRouter.js",
     "groupTitle": "User"
+  },
+  {
+    "type": "post",
+    "url": "/file/upload",
+    "title": "上传图片（返回图片的服务器地址）",
+    "name": "upload",
+    "group": "file",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "file",
+            "optional": false,
+            "field": "name",
+            "description": "<p>菜品名称.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "firstname",
+            "description": "<p>Firstname of the User.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "lastname",
+            "description": "<p>Lastname of the User.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./fileRouter.js",
+    "groupTitle": "file"
   }
 ] });
