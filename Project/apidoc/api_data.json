@@ -52,7 +52,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "./foodRouter.js",
+    "filename": "model/router/foodRouter.js",
     "groupTitle": "Food"
   },
   {
@@ -143,7 +143,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "./foodRouter.js",
+    "filename": "model/router/foodRouter.js",
     "groupTitle": "Food"
   },
   {
@@ -199,13 +199,13 @@
       }
     },
     "version": "0.0.0",
-    "filename": "./foodRouter.js",
+    "filename": "model/router/foodRouter.js",
     "groupTitle": "Food"
   },
   {
     "type": "post",
     "url": "/food/upData",
-    "title": "--修改",
+    "title": "--修改食品",
     "name": "foodUpdata",
     "group": "Food",
     "parameter": {
@@ -255,7 +255,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "./foodRouter.js",
+    "filename": "model/router/foodRouter.js",
     "groupTitle": "Food"
   },
   {
@@ -311,7 +311,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "./foodRouter.js",
+    "filename": "model/router/foodRouter.js",
     "groupTitle": "Food"
   },
   {
@@ -367,7 +367,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "./foodRouter.js",
+    "filename": "model/router/foodRouter.js",
     "groupTitle": "Food"
   },
   {
@@ -430,7 +430,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "./userRouter.js",
+    "filename": "model/router/userRouter.js",
     "groupTitle": "User"
   },
   {
@@ -493,7 +493,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "./userRouter.js",
+    "filename": "model/router/userRouter.js",
     "groupTitle": "User"
   },
   {
@@ -502,19 +502,6 @@
     "title": "上传图片（返回图片的服务器地址）",
     "name": "upload",
     "group": "file",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "file",
-            "optional": false,
-            "field": "name",
-            "description": "<p>菜品名称.</p>"
-          }
-        ]
-      }
-    },
     "success": {
       "fields": {
         "Success 200": [
@@ -536,7 +523,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "./fileRouter.js",
+    "filename": "model/router/fileRouter.js",
     "groupTitle": "file"
   }
 ]

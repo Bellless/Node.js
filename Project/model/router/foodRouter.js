@@ -217,7 +217,7 @@ router.post('/pageSerach', (req, res) => {
 })
 
 /**
- * @api {post} /food/upData --修改
+ * @api {post} /food/upData --修改食品
  * @apiName foodUpdata
  * @apiGroup Food
  *
